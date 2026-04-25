@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Shop | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        .font-serif { font-family: 'Playfair+Display', serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+
+    <nav class="flex justify-between items-center px-10 py-6 border-b border-stone-200 bg-white sticky top-0 z-50">
+        <h1 class="text-2xl font-serif tracking-widest uppercase">Artisan</h1>
+        <div class="space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <a href="/" class="hover:text-stone-500 transition-colors">Home</a>
+            <a href="/store.html" class="hover:text-stone-500 transition-colors">Shop</a>
+            <a href="/login.html" class="hover:text-stone-500 transition-colors">Login</a>
+        </div>
+    </nav>
+
+    <main class="min-h-screen">
+        <section class="h-[80vh] flex flex-col items-center justify-center text-center px-6">
+            <h2 class="text-6xl font-serif mb-6">Handmade with Heart</h2>
+            <p class="max-w-md text-stone-500 mb-10 leading-relaxed">Discover unique pieces crafted by master artisans from around the world.</p>
+            <a href="/store.html" class="bg-stone-900 text-white px-12 py-4 text-[10px] uppercase tracking-widest font-bold hover:bg-stone-800 transition-all">
+                Explore Collection
+            </a>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
