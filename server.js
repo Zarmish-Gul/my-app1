@@ -25,19 +25,11 @@ app.get('/api/orders', (req, res) => {
 
 // POST: The Checkout page calls this to send a new order
 app.post('/api/orders', (req, res) => {
-    const newOrder = {
-        id: Date.now(),
-        ...req.body,
-        status: "Pending"
-    };
+    console.log("Data received:", req.body); // Look at your terminal for this!
+    const newOrder = { id: Date.now(), ...req.body };
     orders.push(newOrder);
-    res.json(newOrder);
-});
-    
-    orders.push(newOrder); // Adds to the in-memory array
-    console.log("New order received:", newOrder);
     res.status(201).json(newOrder);
-
+});
 app.get('/api/orders', (req, res) => {
     res.json(orders);
 })
