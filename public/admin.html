@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitchen Manager | Inbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-10">
+        <h1 class="font-serif text-3xl mb-8">Admin Inbox</h1>
+        
+        <div id="ordersList" class="space-y-4">
+            <p class="text-stone-400">Loading orders from cloud...</p>
+        </div>
+    </div>
+
+    <script>
+        async function fetchOrders() {
+            const response = await fetch('/api/orders');
+            const data = await response.json();
+            const list = document.getElementById('ordersList');
+            
+            if (data.length === 0) {
+                list.innerHTML = "<p>No orders yet.</p>";
+                return;
+            }
+
+            list.innerHTML = data.map(order => `
+                <div class="border-b pb-4 flex justify-between items-center">
+                    <div>
+                        <p class="font-bold">${order.customerName}</p>
+                        <p class="text-sm text-stone-500">${order.items}</p>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-1 rounded">
+                        ${order.status}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        // Fetch every 5 seconds to look "Live" like your friend's site
+        fetchOrders();
+        setInterval(fetchOrders, 5000);
+    </script>
+</body>
+</html>
