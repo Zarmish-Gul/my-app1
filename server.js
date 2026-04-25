@@ -37,7 +37,7 @@ app.post('/api/orders', (req, res) => {
     orders.push(newOrder); // Adds to the in-memory array
     console.log("New order received:", newOrder);
     res.status(201).json(newOrder);
-});
+
 app.get('/api/orders', (req, res) => {
     res.json(orders);
 })
